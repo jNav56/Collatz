@@ -90,4 +90,4 @@ TEST(CollatzFixture, solve) {
     istringstream iss("1 10\n100 200\n201 210\n900 1000\n");
     ostringstream oss;
     collatz_solve(iss, oss);
-    ASSERT_EQ("1 10 11\n100 200 300\n201 210 411\n900 1000 1900\n", oss.str());}
+    ASSERT_EQ("1 10 20\n100 200 125\n201 210 89\n900 1000 174\n", oss.str());}
