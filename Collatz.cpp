@@ -57,4 +57,4 @@ void collatz_print (ostream& sout, const tuple<int, int, int>& t) {
 void collatz_solve (istream& sin, ostream& sout) {
     string s;
     while (getline(sin, s))
-         collatz_print(sout, collatz_eval(collatz_read(s)));}
+        collatz_print(sout, collatz_eval(collatz_read(s)));}
