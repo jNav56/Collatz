@@ -75,7 +75,7 @@ push:
 	git add RunCollatz.in
 	git add RunCollatz.out
 	git add TestCollatz.cpp
-	git commit -m "another commit"
+	git commit -m "Ran unit/acceptance tests, confirmed success" -m "Closes #5"
 	git push
 	git status
 
