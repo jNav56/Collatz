@@ -75,7 +75,7 @@ push:
 	git add RunCollatz.in
 	git add RunCollatz.out
 	git add TestCollatz.cpp
-	git commit -m "Handled case where we will always get an even and thus are able to skip check in line 42-42 of Collatz.cpp" -m "Closes #16"
+	git commit -m "Implented a way to skip half of numbers in pair if i < j/2+1" -m "Closes #17"
 	#git commit -m "Message" -m "Closes #14, #7"
 	git push
 	git status

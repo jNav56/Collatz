@@ -65,7 +65,13 @@ tuple<int, int, int> collatz_eval (const pair<int, int>& p) {
     max = -1;
     tie(i, j) = p;
     // <your code>
-    for(start = i; start <= j; start++) {
+
+    // In reference to Quiz#04 > Question 5 on Canvas
+    // If {m = (j / 2) + 1} > i, then we can just find the cycle length of
+    // [m, j] because anything else will be mapped to a number in [m, j] 
+    start = ((j / 2) + 1) > i ? (j / 2) + 1 : i;
+
+    for(; start <= j; start++) {
         temp = get_collatz_cycle(start);
         max = temp > max ? temp: max;
     }
