@@ -32,13 +32,16 @@ pair<int, int> collatz_read (const string& s) {
 // get_collatz_cycle
 // ------------
 
+// Determine the cycle length of the given parameter
+// Pre condition: 0 < n < 1,000,000
 int get_collatz_cycle(int n) {
     int cycle = 0;
     while(n != 1) {
         if(n % 2 == 1) { // n & 1 for first optimization
             n = 3 * n + 1;
         } else {
-            n = n / 2; // n >> 1 for second optimization
+            // Use a bit shift to the right instead of division
+            n = n >> 1;
         }
         cycle++;
     }
@@ -52,7 +55,7 @@ int get_collatz_cycle(int n) {
 
 // Determine the max cycle length of the range of the given parameters
 // Pre condition: 0 < i, j < 1,000,000
-// Post condition: 0 < max cycle length < 1,000
+// Post condition: 0 < number of pairs < 1,000
 tuple<int, int, int> collatz_eval (const pair<int, int>& p) {
     int i;
     int j;

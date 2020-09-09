@@ -75,8 +75,8 @@ push:
 	git add RunCollatz.in
 	git add RunCollatz.out
 	git add TestCollatz.cpp
-	#git commit -m "Implemented first simple solution passing tests" -m "Closes #4, #7"
-	git commit -m "Implemented first simple solution passing tests, recommiting"
+	git commit -m "Changed division by 2 to 1 bitshift to the right in line 44 of Collatz.cpp" -m "Closes #14"
+	#git commit -m "Message" -m "Closes #14, #7"
 	git push
 	git status
 
@@ -181,7 +181,8 @@ CFILES :=                                 \
 
 # uncomment the following line once you've pushed your test files
 # you must replace GitLabID with your GitLabID
-#    collatz-tests/GitLabID-RunCollatz
+#    collatz-tests/GitLabID-RunCollatz.in  \
+#    collatz-tests/GitLabID-RunCollatz.out
 
 # check the existence of check files
 check: $(CFILES)

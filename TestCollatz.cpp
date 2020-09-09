@@ -74,6 +74,12 @@ TEST(CollatzFixture, eval3) {
     ASSERT_EQ(v, 174);}
 
 // -----
+// My own unit tests
+// -----
+
+
+
+// -----
 // print
 // -----
 
