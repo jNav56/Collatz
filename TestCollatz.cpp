@@ -77,7 +77,15 @@ TEST(CollatzFixture, eval3) {
 // My own unit tests
 // -----
 
-
+TEST(CollatzFixture, eval4) {
+    tuple<int, int, int> t = collatz_eval(make_pair(1000, 5000));
+    int i;
+    int j;
+    int v;
+    tie(i, j, v) = t;
+    ASSERT_EQ(i, 1000);
+    ASSERT_EQ(j, 5000);
+    ASSERT_EQ(v, 238);}
 
 // -----
 // print

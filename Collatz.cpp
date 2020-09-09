@@ -36,9 +36,11 @@ pair<int, int> collatz_read (const string& s) {
 // Pre condition: 0 < n < 1,000,000
 int get_collatz_cycle(int n) {
     int cycle = 0;
+
     while(n != 1) {
         if(n % 2 == 1) { // n & 1 for first optimization
-            n = 3 * n + 1;
+            n = (3 * n + 1) >> 1;
+            cycle++;
         } else {
             // Use a bit shift to the right instead of division
             n = n >> 1;

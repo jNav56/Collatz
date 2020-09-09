@@ -75,7 +75,7 @@ push:
 	git add RunCollatz.in
 	git add RunCollatz.out
 	git add TestCollatz.cpp
-	git commit -m "Changed division by 2 to 1 bitshift to the right in line 44 of Collatz.cpp" -m "Closes #14"
+	git commit -m "Handled case where we will always get an even and thus are able to skip check in line 42-42 of Collatz.cpp" -m "Closes #16"
 	#git commit -m "Message" -m "Closes #14, #7"
 	git push
 	git status
