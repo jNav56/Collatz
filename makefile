@@ -75,7 +75,8 @@ push:
 	git add RunCollatz.in
 	git add RunCollatz.out
 	git add TestCollatz.cpp
-	git commit -m "Implemented first simple solution passing tests" -m "Closes #4, #7"
+	#git commit -m "Implemented first simple solution passing tests" -m "Closes #4, #7"
+	git commit -m "Implemented first simple solution passing tests, recommiting"
 	git push
 	git status
 
