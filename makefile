@@ -151,7 +151,7 @@ collatz-tests/%: RunCollatz
 
 # execute run harness against all tests in Collatz test repo and diff with expected output
 tests: collatz-tests RunCollatz
-	-for v in $(TFILES); do make $${v/.in/}; done
+	#-for v in $(TFILES); do make $${v/.in/}; done
 
 # auto format the code
 format:
