@@ -75,7 +75,7 @@ push:
 	git add RunCollatz.in
 	git add RunCollatz.out
 	git add TestCollatz.cpp
-	git commit -m "Fixed the unit tests and confirmed failures" -m "Closes #6"
+	git commit -m "Implemented first simple solution passing tests" -m "Closes #4, #7"
 	git push
 	git status
 
