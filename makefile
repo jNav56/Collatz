@@ -75,7 +75,7 @@ push:
 	git add RunCollatz.in
 	git add RunCollatz.out
 	git add TestCollatz.cpp
-	git commit -m "Fixed issue with off-by-one error in modifying_range method" -m "Closes #20"
+	git commit -m "Included meta_cache implementation to the evaluation the collatz max cycle and have 15 unit tests" -m "Closes #12"
 	#git commit -m "Message" -m "Closes #14, #7"
 	git push
 	git status

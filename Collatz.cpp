@@ -156,6 +156,29 @@ tuple<int, int, int, int> get_modified_range(int mod_i, int j) {
 }
 
 // ------------
+// collatz_and_cache
+// ------------
+
+int collatz_and_cache(int mod_i, int j) {
+    int temp;
+    int cache_start, cache_end, left_end, right_start;
+    int max = -1;
+
+    tie(cache_start, cache_end, left_end, right_start)
+        = get_modified_range(mod_i, j);
+
+    max = get_max_cache(cache_start, cache_end);
+
+    temp = get_max_range(mod_i, left_end);
+    max = temp > max ? temp : max;
+
+    temp = get_max_range(right_start, j);
+    max = temp > max ? temp : max;
+    
+    return max;
+}
+
+// ------------
 // collatz_eval
 // ------------
 
@@ -178,7 +201,9 @@ tuple<int, int, int> collatz_eval (const pair<int, int>& p) {
 
     if(((mod_i - 1) / 1000) == ((j - 1) / 1000) && j - mod_i == 999) {
         max = cache[mod_i / 1000];
-    }  else {
+    } else if(((mod_i - 1) / 1000) + 1 < (j - 1) / 1000) {
+        max = collatz_and_cache(mod_i, j);
+    } else {
         max = get_max_range(mod_i, j);
     }
 

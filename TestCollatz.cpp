@@ -58,8 +58,8 @@ TEST(CollatzFixture, eval5) {
 TEST(CollatzFixture, eval6) {
     ASSERT_EQ(collatz_eval(make_pair(499000, 500000)), make_tuple(499000, 500000, 395));}
 
-// TEST(CollatzFixture, eval7) {
-//     ASSERT_EQ(collatz_eval(make_pair(1000, 999999)), make_tuple(1000, 999999, 525));}
+TEST(CollatzFixture, eval7) {
+    ASSERT_EQ(collatz_eval(make_pair(1000, 999999)), make_tuple(1000, 999999, 525));}
 
 TEST(CollatzFixture, meta_cache0) {
     ASSERT_EQ(get_max_cache(1, 6), 262);}

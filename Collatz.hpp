@@ -58,6 +58,7 @@ void collatz_print (ostream&, const tuple<int, int, int>&);
  */
 void collatz_solve (istream&, ostream&);
 
+int collatz_and_cache(int, int);
 int get_max_cache(int, int);
 int get_max_range(int, int);
 tuple<int, int, int, int> get_modified_range(int, int);
