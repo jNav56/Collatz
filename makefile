@@ -75,7 +75,7 @@ push:
 	git add RunCollatz.in
 	git add RunCollatz.out
 	git add TestCollatz.cpp
-	git commit -m "Was not able to implement lazy cache correctly, will try later"
+	git commit -m "Created a meta cache and added unit tests for the cache" -m "Closes #18"
 	#git commit -m "Message" -m "Closes #14, #7"
 	git push
 	git status
