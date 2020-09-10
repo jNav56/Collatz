@@ -70,6 +70,21 @@ TEST(CollatzFixture, meta_cache1) {
 TEST(CollatzFixture, meta_cache2) {
     ASSERT_EQ(get_max_cache(500, 500), 364);}
 
+TEST(CollatzFixture, modify_range0) {
+    ASSERT_EQ(get_modified_range(1, 2001), make_tuple(1, 1, 1000, 2001));}
+
+TEST(CollatzFixture, modify_range1) {
+    ASSERT_EQ(get_modified_range(1000, 2001), make_tuple(1, 1, 1000, 2001));}
+
+TEST(CollatzFixture, modify_range2) {
+    ASSERT_EQ(get_modified_range(1000, 3000), make_tuple(1, 1, 1000, 2001));}
+
+TEST(CollatzFixture, modify_range3) {
+    ASSERT_EQ(get_modified_range(1, 3000), make_tuple(1, 1, 1000, 2001));}
+
+TEST(CollatzFixture, modify_range4) {
+    ASSERT_EQ(get_modified_range(12424, 325235), make_tuple(13, 324, 13000, 325001));}
+
 TEST(CollatzFixture, max_cycle0) {
     ASSERT_EQ(get_max_range(359351, 360000), 348);}
 

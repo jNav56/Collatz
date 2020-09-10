@@ -92,7 +92,7 @@ int cache [1000] = {179, 182, 217, 238, 215, 236, 262, 252, 247, 260, 268, 250,
 // Pre condition: 0 < n < 1,000,000
 int get_collatz_cycle(int n) {
     int cycle = 1;
-    int ori = n;
+    // int ori = n;
 
     while(n != 1) {
 
@@ -141,6 +141,21 @@ int get_max_cache(int start, int end) {
 }
 
 // ------------
+// get_modified_range
+// ------------
+
+tuple<int, int, int, int> get_modified_range(int mod_i, int j) {
+    int cache_start, cache_end, left_end, right_start;
+    
+    cache_start = (mod_i + 1000 - 1) / 1000;
+    cache_end = (j - 1000 - 1) / 1000;
+    left_end = mod_i - (mod_i % 1000) + (mod_i % 1000 ? 1000 : 0);
+    right_start = j - (j % 1000) + (j % 1000 ? 1 : -999);
+
+    return make_tuple(cache_start, cache_end, left_end, right_start);
+}
+
+// ------------
 // collatz_eval
 // ------------
 
@@ -155,7 +170,6 @@ tuple<int, int, int> collatz_eval (const pair<int, int>& p) {
 
     assert(i > 0 && i < 1000000);
     assert(j > 0 && j < 1000000);
-    // <your code>
 
     // In reference to Quiz#04 > Question 5 on Canvas
     // If {m = (j / 2) + 1} > i, then we can just find the cycle length of

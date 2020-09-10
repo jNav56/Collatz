@@ -60,5 +60,6 @@ void collatz_solve (istream&, ostream&);
 
 int get_max_cache(int, int);
 int get_max_range(int, int);
+tuple<int, int, int, int> get_modified_range(int, int);
 
 #endif // Collatz_h
