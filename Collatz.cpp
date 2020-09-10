@@ -17,16 +17,9 @@
 
 using namespace std;
 
-// ------------
-// collatz_read
-// ------------
 
-pair<int, int> collatz_read (const string& s) {
-    istringstream sin(s);
-    int i;
-    int j;
-    sin >> i >> j;
-    return make_pair(i, j);}
+// pair<int, int> cache[1000];
+int cache[1000000];
 
 // ------------
 // get_collatz_cycle
@@ -36,6 +29,14 @@ pair<int, int> collatz_read (const string& s) {
 // Pre condition: 0 < n < 1,000,000
 int get_collatz_cycle(int n) {
     int cycle = 0;
+    int temp = n;
+
+    // if(cache[n / 1000].first == n) {
+    //     return cache[n / 1000].second;
+    // }
+    // if(cache[n]) {
+    //     return cache[n];
+    // }
 
     while(n != 1) {
         if(n % 2 == 1) { // n & 1 for first optimization
@@ -46,9 +47,28 @@ int get_collatz_cycle(int n) {
             n = n >> 1;
         }
         cycle++;
+
+        // if(cache[n / 1000].first == n) {
+        //     return cache[n / 1000].second + cycle;
+        // }
+        // if(cache[n]) {
+        //     cache[temp] = cache[n] + cycle;
+        //     return cache[n] + cycle;
+        // }
     }
     cycle++;
+
+    // cache[temp / 1000] = make_pair(temp, cycle);
+    // cache[temp] = cycle;
     return cycle;
+}
+
+int get_cache_value(int n) {
+    return cache[n];
+}
+
+int* get_cache() {
+    return cache;
 }
 
 // ------------
@@ -71,11 +91,24 @@ tuple<int, int, int> collatz_eval (const pair<int, int>& p) {
     // [m, j] because anything else will be mapped to a number in [m, j] 
     start = ((j / 2) + 1) > i ? (j / 2) + 1 : i;
 
+    // start = i;
+
     for(; start <= j; start++) {
         temp = get_collatz_cycle(start);
         max = temp > max ? temp: max;
     }
     return make_tuple(i, j, max);}
+
+// ------------
+// collatz_read
+// ------------
+
+pair<int, int> collatz_read (const string& s) {
+    istringstream sin(s);
+    int i;
+    int j;
+    sin >> i >> j;
+    return make_pair(i, j);}
 
 // -------------
 // collatz_print
