@@ -45,15 +45,6 @@ TEST(CollatzFixture, eval2) {
 TEST(CollatzFixture, eval3) {
     ASSERT_EQ(collatz_eval(make_pair(900, 1000)), make_tuple(900, 1000, 174));}
 
-// TEST(CollatzFixture, cache1) {
-//     ASSERT_EQ(27, get_cache_value(200));
-//     int* cache = get_cache();
-
-//     for(int i = 101; i <= 200; i++) {
-//         cout << "cache[" << i << "] = " << cache[i] << endl;
-//     }
-// }
-
 // -----
 // My own unit tests
 // -----
@@ -67,8 +58,27 @@ TEST(CollatzFixture, eval5) {
 TEST(CollatzFixture, eval6) {
     ASSERT_EQ(collatz_eval(make_pair(499000, 500000)), make_tuple(499000, 500000, 395));}
 
-TEST(CollatzFixture, eval7) {
-    ASSERT_EQ(collatz_eval(make_pair(1000, 100000)), make_tuple(1000, 100000, 351));}
+// TEST(CollatzFixture, eval7) {
+//     ASSERT_EQ(collatz_eval(make_pair(1000, 999999)), make_tuple(1000, 999999, 525));}
+
+TEST(CollatzFixture, meta_cache0) {
+    ASSERT_EQ(get_max_cache(1, 6), 262);}
+
+TEST(CollatzFixture, meta_cache1) {
+    ASSERT_EQ(get_max_cache(0, 999), 525);}
+
+TEST(CollatzFixture, meta_cache2) {
+    ASSERT_EQ(get_max_cache(500, 500), 364);}
+
+TEST(CollatzFixture, max_cycle0) {
+    ASSERT_EQ(get_max_range(359351, 360000), 348);}
+
+TEST(CollatzFixture, max_cycle1) {
+    ASSERT_EQ(get_max_range(586001, 586863), 359);}
+
+TEST(CollatzFixture, max_cycle2) {
+    ASSERT_EQ(get_max_range(999001, 999999), 396);}
+
 
 // -----
 // print
