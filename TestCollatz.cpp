@@ -94,12 +94,6 @@ TEST(CollatzFixture, max_cycle1) {
 TEST(CollatzFixture, max_cycle2) {
     ASSERT_EQ(get_max_range(999001, 999999), 396);}
 
-TEST(CollatzFixture, power0) {
-    ASSERT_EQ(is_power_of_2(345313), false);}
-
-TEST(CollatzFixture, power1) {
-    ASSERT_EQ(is_power_of_2(131072), true);}
-
 
 // -----
 // print

@@ -58,10 +58,44 @@ void collatz_print (ostream&, const tuple<int, int, int>&);
  */
 void collatz_solve (istream&, ostream&);
 
-int collatz_and_cache(int, int);
-int get_max_cache(int, int);
-int get_max_range(int, int);
+// -------------
+// get_modified_range
+// -------------
+
+/**
+ * @param an int
+ * @param an int
+ */
 tuple<int, int, int, int> get_modified_range(int, int);
-bool is_power_of_2(int);
+
+// -------------
+// collatz_and_cache
+// -------------
+
+/**
+ * @param an int
+ * @param an int
+ */
+int collatz_and_cache(int, int);
+
+// -------------
+// get_max_cache
+// -------------
+
+/**
+ * @param an int
+ * @param an int
+ */
+int get_max_cache(int, int);
+
+// -------------
+// get_max_range
+// -------------
+
+/**
+ * @param an int
+ * @param an int
+ */
+int get_max_range(int, int);
 
 #endif // Collatz_h

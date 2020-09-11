@@ -12,15 +12,17 @@
 #include <string>   // getline, string
 #include <tuple>    // make_tuple, tie, tuple
 #include <utility>  // make_pair, pair
-#include <unordered_map>
 #include <math.h>
 
 #include "Collatz.hpp"
 
 using namespace std;
 
+int lazy_cache[1000000] = {0};
+
 // first array I used brute force to obtain info
-int cache [1000] = {179, 182, 217, 238, 215, 236, 262, 252, 247, 260, 268, 250,
+int meta_cache [1000] = {
+179, 182, 217, 238, 215, 236, 262, 252, 247, 260, 268, 250,
 263, 276, 271, 271, 266, 279, 261, 274, 256, 269, 269, 282, 264, 264, 308, 259,
 259, 272, 272, 285, 267, 267, 311, 324, 249, 306, 244, 306, 288, 257, 288, 270,
 270, 314, 283, 314, 296, 296, 278, 309, 340, 322, 260, 260, 322, 304, 273, 304,
@@ -85,54 +87,73 @@ int cache [1000] = {179, 182, 217, 238, 215, 236, 262, 252, 247, 260, 268, 250,
 321, 352, 321, 321, 352, 290, 365, 365, 365, 440, 396, 396};
 
 // ------------
-// get_collatz_cycle
-// ------------
-
-// Determine the cycle length of the given parameter
-// Pre condition: 0 < n < 1,000,000
-int get_collatz_cycle(int n) {
-    int cycle = 1;
-    // int ori = n;
-
-    while(n != 1) {
-
-        if(is_power_of_2(n)) {
-            cycle = (int)(cycle + log2(n));
-            n = 1;
-        } else {
-            if(n & 1) {
-                n = n + (n >> 1) + 1;
-                cycle++;
-            } else {
-                // Use a bit shift to the right instead of division
-                n = n >> 1;
-            }
-            cycle++;
-        }
-    }
-    // cycle++;
-    return cycle;
-}
-
-// ------------
-// is_power_of_2
-// ------------
-
-bool is_power_of_2(int n) {
-    return n && (!(n & (n-1)));
-}
-
-// ------------
 // get_max_range
 // ------------
 
 int get_max_range(int start, int end) {
-    int temp;
-    int max = -1;
+    // int temp;
+    int max = 1;
 
-    for(; start <= end; start++) {
-        temp = get_collatz_cycle(start);
-        max = temp > max ? temp : max;
+    for(int i = start; i <= end; i++) {
+        // Sooooo for some reason when n was an int the program ran slower
+        long n = i;
+        int cycle = 1;
+
+        // This while loop will determine the collatz cycle
+        while (n > 1) {
+            if (n < 1000000 && lazy_cache[n]) {
+                cycle += lazy_cache[n] - 1;
+                n = 1;
+            
+            } else {
+                if (!(n % 2)) {
+                    n = n >> 1;
+                    cycle++;
+
+                } else {
+                    n = n + (n >> 1) + 1;
+                    cycle += 2;
+                }
+            }
+        }
+
+        // Determine if cycle is bigger than the current max
+        // max = cycle > max ? cycle : max;
+        if(cycle > max){
+            max = cycle;
+        }
+
+        // Now that we have the cycle of start, we can go through
+        // the path and for each put it's cycle in the cache
+        n = i;
+        int count = 0;
+        
+        while (n > 1) {
+            
+            // If we get to a number that is already cached, then
+            // we can leave early since numbers after are cached too
+            if (n < 1000000 && lazy_cache[n]) {
+                n = 1;
+            
+            // Add the Collatz cycle into the cache
+            } else {
+
+                // We only cache numbers below 1,000,000
+                if (n < 1000000 && !lazy_cache[n]) {
+                    lazy_cache[n] = cycle - count;
+                }
+
+                if (!(n % 2)) {
+                    n = n >> 1;
+                    count++;
+                
+                } else {
+                    n = n + (n >> 1) + 1;
+                    count += 2;
+                }
+            }
+        }
+
     }
     return max;
 }
@@ -147,7 +168,7 @@ int get_max_cache(int start, int end) {
     int max = -1;
 
     for(; start <= end; start++) {
-        temp = cache[start];
+        temp = meta_cache[start];
         max = temp > max ? temp : max;
     }
     return max;
@@ -201,11 +222,18 @@ int collatz_and_cache(int mod_i, int j) {
 tuple<int, int, int> collatz_eval (const pair<int, int>& p) {
     int i;
     int j;
-    int mod_i, max;
+    int mod_i, max, temp = -1;
     tie(i, j) = p;
 
     assert(i > 0 && i < 1000000);
     assert(j > 0 && j < 1000000);
+
+    // In case we have to swap
+    if(j < i) {
+        temp = i;
+        i = j;
+        j = temp;
+    }
 
     // In reference to Quiz#04 > Question 5 on Canvas
     // If {m = (j / 2) + 1} > i, then we can just find the cycle length of
@@ -213,13 +241,19 @@ tuple<int, int, int> collatz_eval (const pair<int, int>& p) {
     mod_i = ((j / 2) + 1) > i ? (j / 2) + 1 : i;
 
     if(((mod_i - 1) / 1000) == ((j - 1) / 1000) && j - mod_i == 999) {
-        max = cache[mod_i / 1000];
+        max = meta_cache[mod_i / 1000];
     } else if(((mod_i - 1) / 1000) + 1 < (j - 1) / 1000) {
         max = collatz_and_cache(mod_i, j);
     } else {
         max = get_max_range(mod_i, j);
     }
 
+    // max = collatz_help(i, j);
+    // If temp != -1, there was a swap, and temp is holding the old i
+    if(temp != -1) {
+        j = i;
+        i = temp;
+    }
     return make_tuple(i, j, max);}
 
 // ------------

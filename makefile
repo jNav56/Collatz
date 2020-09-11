@@ -75,7 +75,7 @@ push:
 	git add RunCollatz.in
 	git add RunCollatz.out
 	git add TestCollatz.cpp
-	git commit -m "Used method of power_of_2 to find Collatz cycle faster, unit tests still passing"
+	git commit -m "Created simple cache and it works, also I am now passing all 3 tests" -m "Closes #15"
 	#git commit -m "Message" -m "Closes #14, #7"
 	git push
 	git status
