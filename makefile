@@ -75,7 +75,7 @@ push:
 	git add RunCollatz.in
 	git add RunCollatz.out
 	git add TestCollatz.cpp
-	git commit -m "No real change was made, I just didn't think I should make a hash since all tests passed" -m "Closes #19"
+	git commit -m "Created acceptance 300 tests" -m "Closes #13"
 	#git commit -m "Message" -m "Closes #14, #7"
 	git push
 	git status
