@@ -62,5 +62,6 @@ int collatz_and_cache(int, int);
 int get_max_cache(int, int);
 int get_max_range(int, int);
 tuple<int, int, int, int> get_modified_range(int, int);
+bool is_power_of_2(int);
 
 #endif // Collatz_h

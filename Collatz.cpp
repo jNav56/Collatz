@@ -110,6 +110,14 @@ int get_collatz_cycle(int n) {
 }
 
 // ------------
+// is_power_of_2
+// ------------
+
+bool is_power_of_2(int n) {
+    return n && (!(n&(n-1)));
+}
+
+// ------------
 // get_max_range
 // ------------
 

@@ -75,7 +75,7 @@ push:
 	git add RunCollatz.in
 	git add RunCollatz.out
 	git add TestCollatz.cpp
-	git commit -m "Included meta_cache implementation to the evaluation the collatz max cycle and have 15 unit tests" -m "Closes #12"
+	git commit -m "Created a method to check if a number is a power of 2"
 	#git commit -m "Message" -m "Closes #14, #7"
 	git push
 	git status
