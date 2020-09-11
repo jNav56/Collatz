@@ -75,7 +75,7 @@ push:
 	git add RunCollatz.in
 	git add RunCollatz.out
 	git add TestCollatz.cpp
-	git commit -m "Created simple cache and it works, also I am now passing all 3 tests" -m "Closes #15"
+	git commit -m "No real change was made, I just didn't think I should make a hash since all tests passed" -m "Closes #19"
 	#git commit -m "Message" -m "Closes #14, #7"
 	git push
 	git status
