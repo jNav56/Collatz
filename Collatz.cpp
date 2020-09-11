@@ -96,14 +96,19 @@ int get_collatz_cycle(int n) {
 
     while(n != 1) {
 
-        if(n & 1) {
-            n = n + (n >> 1) + 1;
-            cycle++;
+        if(is_power_of_2(n)) {
+            cycle = (int)(cycle + log2(n));
+            n = 1;
         } else {
-            // Use a bit shift to the right instead of division
-            n = n >> 1;
+            if(n & 1) {
+                n = n + (n >> 1) + 1;
+                cycle++;
+            } else {
+                // Use a bit shift to the right instead of division
+                n = n >> 1;
+            }
+            cycle++;
         }
-        cycle++;
     }
     // cycle++;
     return cycle;
@@ -114,7 +119,7 @@ int get_collatz_cycle(int n) {
 // ------------
 
 bool is_power_of_2(int n) {
-    return n && (!(n&(n-1)));
+    return n && (!(n & (n-1)));
 }
 
 // ------------

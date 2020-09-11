@@ -75,7 +75,7 @@ push:
 	git add RunCollatz.in
 	git add RunCollatz.out
 	git add TestCollatz.cpp
-	git commit -m "Created a method to check if a number is a power of 2"
+	git commit -m "Used method of power_of_2 to find Collatz cycle faster, unit tests still passing"
 	#git commit -m "Message" -m "Closes #14, #7"
 	git push
 	git status
