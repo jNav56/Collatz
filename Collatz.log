@@ -1,3 +1,9 @@
+commit 053143a89083822d665d83d496b02d482d4b6f09
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Fri Sep 11 22:45:40 2020 -0500
+
+    Added git log text file
+
 commit ae4de8dbc9b9b96d54d960aab7d0788b2fd62d36
 Author: Juan Nava <jnav56@cs.utexas.edu>
 Date:   Fri Sep 11 22:38:52 2020 -0500
@@ -201,3 +207,15 @@ Author: Juan Nava <nava.juan1012@gmail.com>
 Date:   Fri Sep 4 01:22:45 2020 +0000
 
     Update README.md
+
+commit 092f24faf3d4c7a5386a737a259deca19408bc0d
+Author: Glenn Downing <downing@cs.utexas.edu>
+Date:   Sun Aug 30 21:31:29 2020 -0500
+
+    another commit
+
+commit 09f92b4854947d2fbc77279d86969ccc319ef275
+Author: Glenn Downing <downing@cs.utexas.edu>
+Date:   Sun Aug 30 20:26:35 2020 -0500
+
+    first commit
