@@ -1,0 +1,203 @@
+commit ae4de8dbc9b9b96d54d960aab7d0788b2fd62d36
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Fri Sep 11 22:38:52 2020 -0500
+
+    Ran make format to formate files to astyle and attempted merge request
+    
+    Closes #10
+
+commit e4300fad715b39b64a4a439b75eeec83f5160502
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Fri Sep 11 22:35:37 2020 -0500
+
+    Added inline comments
+
+commit 0ff5cb3c03afd09f5ae4b499b82be8fcf08cee5a
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Fri Sep 11 16:40:51 2020 -0500
+
+    Created acceptance 300 tests
+    
+    Closes #13
+
+commit 8ef7ebf89591536967a44ffe40ad21500ba6661d
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Fri Sep 11 15:28:02 2020 -0500
+
+    No real change was made, I just didn't think I should make a hash since all tests passed
+    
+    Closes #19
+
+commit 6167bb63e7a67dd12bb72462a92dc7572ebd1149
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Fri Sep 11 15:05:09 2020 -0500
+
+    Created simple cache and it works, also I am now passing all 3 tests
+    
+    Closes #15
+
+commit 25cd65e5127eabb23adc5ac17e863cbf4d2afdf4
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Thu Sep 10 19:37:18 2020 -0500
+
+    Used method of power_of_2 to find Collatz cycle faster, unit tests still passing
+
+commit b6de06ef2d7026f2c89c1cfe82edc958cbf23fc3
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Thu Sep 10 19:04:53 2020 -0500
+
+    Created a method to check if a number is a power of 2
+
+commit c3b22ad74cf6febfd6b4269e87f5bc5308299f65
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Thu Sep 10 18:55:03 2020 -0500
+
+    Included meta_cache implementation to the evaluation the collatz max cycle and have 15 unit tests
+    
+    Closes #12
+
+commit 15eeae68c0675ff0ba9546101ea6a796f8bddc5b
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Thu Sep 10 18:38:20 2020 -0500
+
+    Fixed issue with off-by-one error in modifying_range method
+    
+    Closes #20
+
+commit e1e869bc7bc635626115ddc1c59fc0b443cdf7bd
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Thu Sep 10 17:59:31 2020 -0500
+
+    Created a method to modify range required to run collatz when unable to get cache
+
+commit 67e576de7f82d2e088ce76a7077c2f41e9c3452b
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Thu Sep 10 16:46:11 2020 -0500
+
+    Created a meta cache and added unit tests for the cache
+    
+    Closes #18
+
+commit 81a3fc3f31aab00bae86dfe2bb4d1c779a422cee
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Thu Sep 10 16:44:34 2020 -0500
+
+    Was not able to implement lazy cache correctly, will try later
+
+commit 034aac2462a779909934df38a0adff80125ef059
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Wed Sep 9 22:22:02 2020 -0500
+
+    Was not able to implement lazy cache correctly, will try later
+
+commit 8ae8299c0a18fd9ac222a51c8e46c1527f3467a9
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Wed Sep 9 15:26:01 2020 -0500
+
+    Implented a way to skip half of numbers in pair if i < j/2+1
+    
+    Closes #17
+
+commit a152e9ad8cc2cd70049f8108a4b2fdc0c63249cf
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Wed Sep 9 14:53:41 2020 -0500
+
+    Handled case where we will always get an even and thus are able to skip check in line 42-42 of Collatz.cpp
+    
+    Closes #16
+
+commit ad16709bf616d8eb8e0b39271387643cbe7cddb6
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Wed Sep 9 14:23:56 2020 -0500
+
+    Changed division by 2 to 1 bitshift to the right in line 44 of Collatz.cpp
+    
+    Closes #14
+
+commit a27d14a0d89d08960de14fc4d0ebd6b1daeb39c6
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Tue Sep 8 21:46:48 2020 -0500
+
+    Implemented first simple solution passing tests, recommiting
+
+commit 30176df19bb1c32da5a5893d68286ff8f64d735c
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Tue Sep 8 21:33:31 2020 -0500
+
+    Implemented first simple solution passing tests, recommiting
+
+commit 0981de87082870dd25e99515647a817e10f9a5fc
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Tue Sep 8 19:26:13 2020 -0500
+
+    Implemented first simple solution passing tests
+    
+    Closes #4, #7
+
+commit 5ba32a6a560586240356906c40ca7431516b4df1
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Tue Sep 8 16:18:05 2020 -0500
+
+    Fixed values in unit tests, but did not run make test
+
+commit 9db8eb6f075f881e89a03b5fb53a5d3362aec0b5
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Tue Sep 8 16:07:17 2020 -0500
+
+    Testing to see if original state will be successful in pipeline
+
+commit a996dabc2a3943d98270545e44c7415e66713566
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Tue Sep 8 15:40:08 2020 -0500
+
+    Delete premature Doxyfile
+
+commit 58a329af45d6e27a1df5c11294819ee193d11dd2
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Tue Sep 8 15:33:08 2020 -0500
+
+    Fixed the unit tests and confirmed failures
+    
+    Closes #6
+
+commit b2e148b497d9e00e925eaebeb482990150d2a887
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Tue Sep 8 15:06:11 2020 -0500
+
+    Fixed the unit tests and confirmed failures
+    
+    Closes #6
+
+commit 26716625c3a401709ac61320592c64c41c82f74c
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Tue Sep 8 14:25:22 2020 -0500
+
+    Ran unit/acceptance tests, confirmed success
+    
+    Closes #5
+
+commit fa6c0807f81f5a0d8ad329a74c1f8ea93c7ccaae
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Tue Sep 8 08:14:27 2020 -0500
+
+    Modified Collatz and RunCollatz to original files
+
+commit b8f95c2c20c63954b5fb09c6e7372e735a6104ad
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Tue Sep 8 07:43:07 2020 -0500
+
+    Added the Doxyfile and ran doxygen on the file
+    
+    Closes #11
+
+commit 20294ce144cb81d09e377546cfe39d452459c436
+Author: Juan Nava <jnav56@cs.utexas.edu>
+Date:   Tue Sep 8 07:21:39 2020 -0500
+
+    Added html folder into the private repository
+
+commit 4acd122a0bf2a9b812460201efdb653b8a895818
+Author: Juan Nava <nava.juan1012@gmail.com>
+Date:   Fri Sep 4 01:22:45 2020 +0000
+
+    Update README.md
