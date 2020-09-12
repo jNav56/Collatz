@@ -20,7 +20,9 @@ using namespace std;
 
 int lazy_cache[1000000] = {0};
 
-// first array I used brute force to obtain info
+// This is a cache to contains the highest collatz cycle in the sets of a one
+// thousand numbers, so a set can be defined as a range of XXX1 - X000
+// index[0] the range is 1 to 1000 with the highest collatz cycle being 179
 int meta_cache [1000] = {
 179, 182, 217, 238, 215, 236, 262, 252, 247, 260, 268, 250,
 263, 276, 271, 271, 266, 279, 261, 274, 256, 269, 269, 282, 264, 264, 308, 259,
@@ -87,24 +89,37 @@ int meta_cache [1000] = {
 321, 352, 321, 321, 352, 290, 365, 365, 365, 440, 396, 396};
 
 // ------------
-// get_max_range
+// get_max_cycle
 // ------------
 
-int get_max_range(int start, int end) {
-    // int temp;
+// Side Note about get_max_cycle, I orginally had two methods that get_max_cycle
+// would call, but the program passed tests when got rid of the methods and put
+// them in get_max_cycle
+
+// Find the max Collatz cycle length of all the numbers from from start to end
+// inclusive with Collatz Conjecture and a lazy_cache
+// Pre condition: 0 < start, end < 1,000,000
+int get_max_cycle(int start, int end) {
+
+    // I would have declared all the local variables in the outside, but I was
+    // not passing test 1 and 2 whrn I did that
     int max = 1;
 
     for(int i = start; i <= end; i++) {
         // Sooooo for some reason when n was an int the program ran slower
+        // and I was passing tests with n being a long
         long n = i;
         int cycle = 1;
 
-        // This while loop will determine the collatz cycle
+        // Find the Collatz cycle of n
         while (n > 1) {
+
+            // See if n has its cycle cached
             if (n < 1000000 && lazy_cache[n]) {
                 cycle += lazy_cache[n] - 1;
                 n = 1;
             
+            // Collatz Conjecture
             } else {
                 if (!(n % 2)) {
                     n = n >> 1;
@@ -118,16 +133,14 @@ int get_max_range(int start, int end) {
         }
 
         // Determine if cycle is bigger than the current max
-        // max = cycle > max ? cycle : max;
         if(cycle > max){
             max = cycle;
         }
 
-        // Now that we have the cycle of start, we can go through
-        // the path and for each put it's cycle in the cache
         n = i;
         int count = 0;
         
+        // Go through path of n again and cache the cycles of numbers in path
         while (n > 1) {
             
             // If we get to a number that is already cached, then
@@ -140,9 +153,13 @@ int get_max_range(int start, int end) {
 
                 // We only cache numbers below 1,000,000
                 if (n < 1000000 && !lazy_cache[n]) {
+                    // Since count keeps track of the numbers we have gone
+                    // through we can use that to find the collatz cycle
+                    // using the cycle of i
                     lazy_cache[n] = cycle - count;
                 }
 
+                // Collatz Conjecture
                 if (!(n % 2)) {
                     n = n >> 1;
                     count++;
@@ -162,7 +179,9 @@ int get_max_range(int start, int end) {
 // get_max_cache
 // ------------
 
-// Search the 
+// Search the meta cache and determine what is the biggest collatz cycle
+// between all the sets start to end inclusive
+// Pre condition: 0 < start, end < 1,000
 int get_max_cache(int start, int end) {
     int temp;
     int max = -1;
@@ -178,6 +197,11 @@ int get_max_cache(int start, int end) {
 // get_modified_range
 // ------------
 
+// Determine the range to search in the met-cache and the ranges for the
+// lower and upper ranges for get_max_cycle to compute
+// For example if i = 1234 and  j = 56789, then we would use the meta
+// cache for 2001 to 56700 (or index 2 to index 56 in the meta array) and
+// we would use get_max_cycle for 1234 to 2000 and 56701 to 56789
 tuple<int, int, int, int> get_modified_range(int mod_i, int j) {
     int cache_start, cache_end, left_end, right_start;
     
@@ -193,20 +217,26 @@ tuple<int, int, int, int> get_modified_range(int mod_i, int j) {
 // collatz_and_cache
 // ------------
 
+// We use the meta-cache for SETS and get_max_cycle for extra numbers
+// that aren't accounted for
 int collatz_and_cache(int mod_i, int j) {
     int temp;
     int cache_start, cache_end, left_end, right_start;
     int max = -1;
 
+    // Get proper indexes to search cache
     tie(cache_start, cache_end, left_end, right_start)
         = get_modified_range(mod_i, j);
 
+    // Run get_max_cycle for lower modified range
     max = get_max_cache(cache_start, cache_end);
 
-    temp = get_max_range(mod_i, left_end);
+    // Run get_max_cycle for lower modified range
+    temp = get_max_cycle(mod_i, left_end);
     max = temp > max ? temp : max;
 
-    temp = get_max_range(right_start, j);
+    // Run get_max_cycle for upper modified range
+    temp = get_max_cycle(right_start, j);
     max = temp > max ? temp : max;
     
     return max;
@@ -217,8 +247,9 @@ int collatz_and_cache(int mod_i, int j) {
 // ------------
 
 // Determine the max cycle length of the range of the given parameters
+// A SET is defined as 1000 numbers within a certain range, so 523 is
+// in the set of 1 - 1000 and 2344 is in the set of 2001 and 3000
 // Pre condition: 0 < i, j < 1,000,000
-// Post condition: 0 < number of pairs < 1,000
 tuple<int, int, int> collatz_eval (const pair<int, int>& p) {
     int i;
     int j;
@@ -235,20 +266,22 @@ tuple<int, int, int> collatz_eval (const pair<int, int>& p) {
         j = temp;
     }
 
-    // In reference to Quiz#04 > Question 5 on Canvas
-    // If {m = (j / 2) + 1} > i, then we can just find the cycle length of
-    // [m, j] because anything else will be mapped to a number in [m, j] 
+    // Adjust range to possibly get rid of half of the numbers to search
     mod_i = ((j / 2) + 1) > i ? (j / 2) + 1 : i;
 
+    // Quickly get max cycle if the range is exactly one SET
     if(((mod_i - 1) / 1000) == ((j - 1) / 1000) && j - mod_i == 999) {
         max = meta_cache[mod_i / 1000];
+
+    // i and j have a full SET in between so use meta-cache and get_max_cycle
     } else if(((mod_i - 1) / 1000) + 1 < (j - 1) / 1000) {
         max = collatz_and_cache(mod_i, j);
+
+    // Cqn't use meta-cache so just use lazy_cache and get_max_cycle 
     } else {
-        max = get_max_range(mod_i, j);
+        max = get_max_cycle(mod_i, j);
     }
 
-    // max = collatz_help(i, j);
     // If temp != -1, there was a swap, and temp is holding the old i
     if(temp != -1) {
         j = i;

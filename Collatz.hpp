@@ -89,13 +89,13 @@ int collatz_and_cache(int, int);
 int get_max_cache(int, int);
 
 // -------------
-// get_max_range
+// get_max_cycle
 // -------------
 
 /**
  * @param an int
  * @param an int
  */
-int get_max_range(int, int);
+int get_max_cycle(int, int);
 
 #endif // Collatz_h

@@ -75,7 +75,7 @@ push:
 	git add RunCollatz.in
 	git add RunCollatz.out
 	git add TestCollatz.cpp
-	git commit -m "Created acceptance 300 tests" -m "Closes #13"
+	git commit -m "Added inline comments"
 	#git commit -m "Message" -m "Closes #14, #7"
 	git push
 	git status
@@ -151,7 +151,7 @@ collatz-tests/%: RunCollatz
 
 # execute run harness against all tests in Collatz test repo and diff with expected output
 tests: collatz-tests RunCollatz
-	#-for v in $(TFILES); do make $${v/.in/}; done
+	-for v in $(TFILES); do make $${v/.in/}; done
 
 # auto format the code
 format:
