@@ -8,12 +8,16 @@
 
 * HackerRank ID: nava_juan1012
 
-* Git SHA: (most recent Git SHA, final change to your repo will change this, that's ok)
+* Git SHA: 1f00a284a08ddce1e3a7f8173dad7b5ecd0bdb3a
 
-* GitLab Pipelines: (link to your GitLab CI Pipeline)
+* GitLab Pipelines: https://gitlab.com/jNav56/cs371p-collatz/-/pipelines
 
 * Estimated completion time: 10
 
-* Actual completion time: (actual time in hours, int or float)
+* Actual completion time: 20
 
-* Comments: (any additional comments you have)
+* Comments: Overall this project was ok, the most issues I had came from
+implementing the lazy cache because I was not saving the cycles from the
+path. Other than that, the thing that stressed me out was navigating
+through the use of git and understanding the workflow.
+

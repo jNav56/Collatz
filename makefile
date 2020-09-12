@@ -75,7 +75,7 @@ push:
 	git add RunCollatz.in
 	git add RunCollatz.out
 	git add TestCollatz.cpp
-	git commit -m "Ran make format to formate files to astyle and attempted merge request" -m "Closes #10"
+	git commit -m "Updated README document"
 	#git commit -m "Message" -m "Closes #14, #7"
 	git push
 	git status
