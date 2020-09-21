@@ -14,9 +14,9 @@ This class revolved projects, assignments, lectures around using object-oriented
 
 # CS371p: Object-Oriented Programming Collatz Repo
 
-* Name: Juan Nava
+* Name: 
 
-* EID: jcn842
+* EID: 
 
 * GitLab ID: jNav56
 
