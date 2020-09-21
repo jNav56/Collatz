@@ -2,7 +2,7 @@
 
 In this project play around with the Collatz's conjecture and find ways to optimize the problem through the use of caches and using patterns in the conjecture to save time when executing the program. The project also put emphasis to test individual components of the code with Google Tests and not assertions.
 
-Main files to look at are Collatz.cpp and Test_Collatz.cpp.
+Main files to look at are Collatz.cpp and TestCollatz.cpp.
 
 ## Key Features
 - Implemented lazy cache
