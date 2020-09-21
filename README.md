@@ -1,3 +1,17 @@
+# Collatz
+
+In this project play around with the Collatz's conjecture and find ways to optimize the problem through the use of caches and using patterns in the conjecture to save time when executing the program. The project also put emphasis to test individual components of the code with Google Tests and not assertions.
+
+## Key Features
+- Implemented lazy cache
+- Implemented meta-cache
+- Used mathematical optimizations
+- Shows use of git and unit testing with Google Tests
+
+## Object-Oriented Programming Class
+
+This class revolved projects, assignments, lectures around using object-oriented design methodology to many software development problems. The class also focused strongly on standard tools in the software development industry in the projects adn adjusted students to getting used to a generic workflow many companies may follow.
+
 # CS371p: Object-Oriented Programming Collatz Repo
 
 * Name: Juan Nava
