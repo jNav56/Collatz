@@ -26,9 +26,9 @@ Grundsatzlich: https://www.grundsatzlich-it.nl/collatz.html <br/>
 
 Here is where the main objective of the project lies. Simply put we want to know the largest collatz cycle length that is possible between a range of numbers. For example, between the numbers 248_376 and 828_188, the number with the highest collatz cycle was 626_331 with a cycle length of 508.
 
-248_376 - 828_188 => 508
-2 - 22366 => 278
-58_658 - 946_738 => 524
+248_376 - 828_188 => 508 <br/>
+2 - 22366 => 278 <br/>
+58_658 - 946_738 => 524 <br/>
 
 ![gif](collatz_range.gif)
 
