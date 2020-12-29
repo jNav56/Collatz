@@ -16,9 +16,17 @@ Number 248_376 => 119 <br/>
 Number 828_188 => 281 <br/>
 Number 182_988 => 72 <br/>
 
+![gif](collatz_single.gif)
+
 DCode: https://www.dcode.fr/collatz-conjecture <br/>
 MathCelebrity: https://www.mathcelebrity.com/collatz.php <br/>
 Grundsatzlich: https://www.grundsatzlich-it.nl/collatz.html <br/>
+
+### Collatz Cycle Range
+
+Here is where the main objective of the project lies. Simply put we want to know the largest collatz cycle length that is possible between a range of numbers. For example, between the numbers 248_376 and 828_188, the number with the highest collatz cycle was 626_331 with a cycle length of 508.
+
+![gif](collatz_range.gif)
 
 ## Key Features
 - Implemented lazy cache
