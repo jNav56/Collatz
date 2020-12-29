@@ -12,13 +12,13 @@ Main files to look at are Collatz.cpp and TestCollatz.cpp.
 
 First we will show that the program can accurately calculate the cycle length of a number using HackerRank's custom input. In this display we test out finding the cycle length of 248_376, 828_188, and 182_988. I will also include links to sites that I used to check my work.
 
-Number 248_376 => 119
-Number 828_188 => 281
-Number 182_988 => 72
+Number 248_376 => 119 <br/>
+Number 828_188 => 281 <br/>
+Number 182_988 => 72 <br/>
 
-DCode: https://www.dcode.fr/collatz-conjecture
-MathCelebrity: https://www.mathcelebrity.com/collatz.php
-Grundsatzlich: https://www.grundsatzlich-it.nl/collatz.html
+DCode: https://www.dcode.fr/collatz-conjecture <br/>
+MathCelebrity: https://www.mathcelebrity.com/collatz.php <br/>
+Grundsatzlich: https://www.grundsatzlich-it.nl/collatz.html <br/>
 
 ## Key Features
 - Implemented lazy cache
