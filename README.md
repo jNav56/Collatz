@@ -2,7 +2,23 @@
 
 In this project play around with the Collatz's conjecture and find ways to optimize the problem through the use of caches and using patterns in the conjecture to save time when executing the program. The project also put emphasis to test individual components of the code with Google Tests and not assertions.
 
+The goal of the project is to have an input in the format of (n m) where n is the lower bound of a range and m is the upper bound of a range. The output should be in the format of (n m c) where c is the number of collatz cycles of a number between n and m, and c is also the largest collatz cycle found among all numbers between n and m.
+
 Main files to look at are Collatz.cpp and TestCollatz.cpp.
+
+## Display of Project
+
+### Collatz Cycle Length of Numbers
+
+First we will show that the program can accurately calculate the cycle length of a number using HackerRank's custom input. In this display we test out finding the cycle length of 248_376, 828_188, and 182_988. I will also include links to sites that I used to check my work.
+
+Number 248_376 => 119
+Number 828_188 => 281
+Number 182_988 => 72
+
+DCode: https://www.dcode.fr/collatz-conjecture
+MathCelebrity: https://www.mathcelebrity.com/collatz.php
+Grundsatzlich: https://www.grundsatzlich-it.nl/collatz.html
 
 ## Key Features
 - Implemented lazy cache
